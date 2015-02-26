@@ -1,0 +1,56 @@
+= MarkMapper
+
+{<img src="https://badge.fury.io/rb/mark_mapper.png" alt="RubyGem" />}[https://rubygems.org/gems/mark_mapper]
+{<img src="https://travis-ci.org/mongomapper/mongomapper.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mongomapper/mongomapper]
+{<img src="https://coveralls.io/repos/jnunemaker/mongomapper/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/jnunemaker/mongomapper]
+
+A Ruby Object Mapper for MarkLogic.
+
+== Install
+
+    $ gem install mark_mapper
+
+== Documentation
+
+http://mongomapper.com/documentation/
+
+http://rdoc.info/github/mongomapper/mongomapper
+
+== Compatibility
+
+MarkMapper is tested against:
+
+* MRI 1.8.7
+* MRI 1.9.3
+* MRI 2.0.0
+* MRI 2.1.1
+* JRuby (Versions with 1.9 compatibility)
+
+Additionally, MarkMapper is tested against:
+
+* Rails 3.0.x
+* Rails 3.1.x
+* Rails 3.2.x
+* Rails 4.0.x
+
+== Contributing & Development
+
+    $ git clone https://github.com/jnunemaker/mongomapper && cd mongomapper
+    $ bundle install
+    $ bundle exec rake
+
+* Fork the project.
+* Make your feature addition or bug fix. All specs should pass.
+* Add specs for your changes. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with Rakefile, version, or history. If you want to have your own version, that is fine but bump version in a commit by itself in another branch so a maintainer ignore it when your pull request is merged.
+* Send a pull request. Bonus points for topic branches.
+
+== Problems or Questions?
+
+Hit up the Google group: http://groups.google.com/group/mongomapper
+
+Hop on IRC: irc://chat.freenode.net/#mongomapper
+
+== License & Copyright
+
+See LICENSE for details.

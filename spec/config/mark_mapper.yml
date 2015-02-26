@@ -1,0 +1,6 @@
+test:
+  app_name: markmapper-application-test
+  host: <%=ENV["MARKMAPPER_SPEC_HOST"]%>
+  port: <%=ENV["MARKMAPPER_SPEC_PORT"]%>
+  username: <%=ENV["MARKMAPPER_SPEC_USER"]%>
+  password: <%=ENV["MARKMAPPER_SPEC_PASSWORD"]%>
