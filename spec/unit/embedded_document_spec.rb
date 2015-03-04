@@ -10,7 +10,7 @@ module KeyOverride
   end
 end
 
-describe "EmbeddedDocument", :working => true do
+describe "EmbeddedDocument" do
   context "EmbeddedDocuments" do
     before do
       class ::Grandparent

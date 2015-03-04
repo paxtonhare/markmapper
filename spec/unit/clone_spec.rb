@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Clone", :working => true do
+describe "Clone" do
   context "Document" do
     before do
       @document = Doc()

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Userstamps
-  describe "Userstamps", :working => true do
+  describe "Userstamps" do
     class AltUser
       include MarkMapper::Document
     end

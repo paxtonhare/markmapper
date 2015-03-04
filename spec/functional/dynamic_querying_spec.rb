@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Dynamic Querying", :working => true do
+describe "Dynamic Querying" do
   before do
     @document = Doc do
       scope :nunes, where(:last_name => 'Nunemaker')
@@ -27,7 +27,7 @@ describe "Dynamic Querying", :working => true do
   end
 
   it "should not raise error" do
-    @document.find_by_first_name('Mongo').should be_nil
+    @document.find_by_first_name('MarkLogic').should be_nil
   end
 
   it "should define a method for each key" do

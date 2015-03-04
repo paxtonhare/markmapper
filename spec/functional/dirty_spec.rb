@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Dirty", :working => true do
+describe "Dirty" do
   before do
     @document = Doc {
       key :phrase, String

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A document with protected attributes', :working => true do
+describe 'A document with protected attributes' do
   before do
     @doc_class = Doc do
       key :name, String
@@ -147,7 +147,7 @@ describe "Single collection inherited protected attributes" do
   end
 end
 
-describe 'An embedded document with protected attributes', :working => true do
+describe 'An embedded document with protected attributes' do
   before do
     @doc_class = Doc('Project')
     @edoc_class = EDoc('Person') do

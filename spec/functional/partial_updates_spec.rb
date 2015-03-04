@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Partial Updates", :working => true do
+describe "Partial Updates" do
   before do
     @klass = Doc("PartialUpdates") do
       key :string_field, String

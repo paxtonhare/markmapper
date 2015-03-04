@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Caching", :working => true do
+describe "Caching" do
   before do
     @klass = Class.new do
       extend MarkMapper::Plugins

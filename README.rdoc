@@ -1,9 +1,5 @@
 = MarkMapper
 
-{<img src="https://badge.fury.io/rb/mark_mapper.png" alt="RubyGem" />}[https://rubygems.org/gems/mark_mapper]
-{<img src="https://travis-ci.org/mongomapper/mongomapper.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mongomapper/mongomapper]
-{<img src="https://coveralls.io/repos/jnunemaker/mongomapper/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/jnunemaker/mongomapper]
-
 A Ruby Object Mapper for MarkLogic.
 
 == Install
@@ -12,9 +8,9 @@ A Ruby Object Mapper for MarkLogic.
 
 == Documentation
 
-http://mongomapper.com/documentation/
+http://markmapper.com/documentation/
 
-http://rdoc.info/github/mongomapper/mongomapper
+http://rdoc.info/github/markmapper/markmapper
 
 == Compatibility
 
@@ -35,7 +31,7 @@ Additionally, MarkMapper is tested against:
 
 == Contributing & Development
 
-    $ git clone https://github.com/jnunemaker/mongomapper && cd mongomapper
+    $ git clone https://github.com/jnunemaker/markmapper && cd markmapper
     $ bundle install
     $ bundle exec rake
 
@@ -47,9 +43,9 @@ Additionally, MarkMapper is tested against:
 
 == Problems or Questions?
 
-Hit up the Google group: http://groups.google.com/group/mongomapper
+Hit up the Google group: http://groups.google.com/group/markmapper
 
-Hop on IRC: irc://chat.freenode.net/#mongomapper
+Hop on IRC: irc://chat.freenode.net/#markmapper
 
 == License & Copyright
 

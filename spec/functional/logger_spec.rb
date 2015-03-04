@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Logger", :working => true do
+describe "Logger" do
   context "with connection that has logger" do
     before do
       @output = StringIO.new

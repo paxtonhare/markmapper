@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Core Extensions", :working => true do
+describe "Core Extensions" do
   describe "Time" do
     let(:doc) do
       Doc do

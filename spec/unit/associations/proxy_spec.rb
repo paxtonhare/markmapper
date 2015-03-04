@@ -16,7 +16,7 @@ class FakeProxy < MarkMapper::Plugins::Associations::Proxy
   def find_target; [1, 2] end
 end
 
-describe "Proxy", :working => true do
+describe "Proxy" do
   before do
     @owner = double('owner', :new? => false)
     @association = double('association', :options => {:extend => []})

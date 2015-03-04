@@ -60,7 +60,7 @@ module CounterCacheFixtureModels
   end
 end
 
-describe MarkMapper::Plugins::CounterCache, :working => true do
+describe MarkMapper::Plugins::CounterCache do
   before do
     @post_class = CounterCacheFixtureModels::Post
     @comment_class = CounterCacheFixtureModels::Comment

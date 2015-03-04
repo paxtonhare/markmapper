@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "ManyPolymorphicProxy", :working => true do
+describe "ManyPolymorphicProxy" do
   before do
     Room.collection.remove
     Message.collection.remove

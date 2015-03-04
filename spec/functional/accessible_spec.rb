@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Accessible", :working => true do
+describe "Accessible" do
   context 'A document with accessible attributes' do
     before do
       @doc_class = Doc do

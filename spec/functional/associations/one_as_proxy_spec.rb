@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'support/models'
 
-describe "OneAsProxy", :working => true do
+describe "OneAsProxy" do
   before do
     @post_class  = Doc('Post')
     @author_class = Doc('Author')

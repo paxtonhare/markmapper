@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Support", :working => true do
+describe "Support" do
   context "Array.to_marklogic" do
     it "should convert value to_a" do
       Array.to_marklogic([1, 2, 3, 4]).should == [1, 2, 3, 4]

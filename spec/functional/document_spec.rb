@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'support/models'
 
-describe "Document", :working => true do
+describe "Document" do
   before do
     @document = Doc do
       key :first_name, String

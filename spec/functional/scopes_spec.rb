@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Scopes", :working => true do
+describe "Scopes" do
   context "Scopes" do
     before do
       @document = Doc() do

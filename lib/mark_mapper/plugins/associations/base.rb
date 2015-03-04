@@ -5,7 +5,7 @@ module MarkMapper
       class Base
         attr_reader :name, :options, :query_options
 
-        # Options that should not be considered MongoDB query options/criteria
+        # Options that should not be considered MarkLogic query options/criteria
         AssociationOptions = [:as, :class, :class_name, :dependent, :extend, :foreign_key, :in, :polymorphic, :autosave, :touch, :counter_cache]
 
         def initialize(name, options={}, &extension)

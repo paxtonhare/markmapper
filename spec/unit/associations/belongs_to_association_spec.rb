@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module BelongsToAssociation
   include MarkMapper::Plugins::Associations
-  describe "BelongsToAssociation", :working => true do
+  describe "BelongsToAssociation" do
 
     context "class_name" do
       it "should camelize the name" do

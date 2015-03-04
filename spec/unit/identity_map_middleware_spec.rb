@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rack/test'
 
 module IdentityMapSpec
-  describe "IdentityMapMiddleware", :working => true do
+  describe "IdentityMapMiddleware" do
     include Rack::Test::Methods
 
     def app

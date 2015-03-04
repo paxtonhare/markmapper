@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "ManyEmbeddedPolymorphicProxy", :working => true do
+describe "ManyEmbeddedPolymorphicProxy" do
   before do
     Catalog.collection.remove
     TrModels::Fleet.collection.remove

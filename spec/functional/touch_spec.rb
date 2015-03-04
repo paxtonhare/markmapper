@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Touch", :working => true do
+describe "Touch" do
   context "touch" do
     context "document" do
       before do

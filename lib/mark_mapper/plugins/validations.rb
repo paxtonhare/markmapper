@@ -44,12 +44,14 @@ module MarkMapper
         def validate_each(record, attribute, value)
           conditions = scope_conditions(record)
 
-          if options[:case_sensitive]
+          if options[:case_sensitive] == true
             conditions[attribute] = value
           else
             conditions[attribute] = {
               '$eq' => value.to_s.downcase,
-              :term_options => "case-insensitive"
+              options: {
+                case_sensitive: false
+              }
             }
           end
 

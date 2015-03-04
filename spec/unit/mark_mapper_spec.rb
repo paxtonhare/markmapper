@@ -2,7 +2,7 @@ require 'spec_helper'
 
 class Address; end
 
-describe "MarkMapper", :skip=>true do
+describe "MarkMapper" do
   it "should be able to write and read connection" do
     conn = MarkLogic::Connection.new(HOST, PORT)
     MarkMapper.connection = conn

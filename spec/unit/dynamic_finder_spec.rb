@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "DynamicFinder", :working => true do
+describe "DynamicFinder" do
   DynamicFinder = MarkMapper::Plugins::DynamicQuerying::DynamicFinder
 
   it "should initialize with method" do

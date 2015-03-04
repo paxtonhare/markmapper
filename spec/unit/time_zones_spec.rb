@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "TimeZones", :working => true do
+describe "TimeZones" do
   context "An instance of an embedded document" do
     before do
       @document = EDoc do

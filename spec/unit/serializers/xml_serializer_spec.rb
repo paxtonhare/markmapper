@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module XmlSerialization
-  describe "XmlSerialization", :working => true do
+  describe "XmlSerialization" do
     class Tag
       include MarkMapper::EmbeddedDocument
       key :name, String

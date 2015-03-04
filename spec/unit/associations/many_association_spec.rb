@@ -3,7 +3,7 @@ require 'spec_helper'
 
 module ManyAssociationSpec
   include MarkMapper::Plugins::Associations
-  describe "ManyAssociation", :working => true do
+  describe "ManyAssociation" do
 
     context "class_name" do
       it "should camelize the name" do

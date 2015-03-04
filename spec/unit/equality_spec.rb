@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Equality", :working => true do
+describe "Equality" do
   context "Case equality" do
     before do
       @klass = Class.new do

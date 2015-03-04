@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Single collection inheritance (document)", :working => true do
+describe "Single collection inheritance (document)" do
   # context "without a connection", :without_connection => true do
   #   it "should attempt to create a connection during inheritance" do
   #     expect(MarkLogic::Connection).to_not receive(:new)

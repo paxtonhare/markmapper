@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Timestamps", :working => true do
+describe "Timestamps" do
   context "included" do
     before do
       @klass = Doc do

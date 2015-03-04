@@ -49,7 +49,7 @@ module ReflectOnAssociationTestModels
   end
 end
 
-describe "ReflectOnAssociation", :working => true do
+describe "ReflectOnAssociation" do
   context "one-to-many association" do
     it "should return :has_many association for Tree#birds" do
       association = ReflectOnAssociationTestModels::Tree.reflect_on_association(:birds)

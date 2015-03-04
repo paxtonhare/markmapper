@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-describe "ManyDocumentsProxy", :working => true do
+describe "ManyDocumentsProxy" do
   before do
     Project.collection.remove
     Status.collection.remove

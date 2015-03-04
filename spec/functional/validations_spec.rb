@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Validations", :working => true do
+describe "Validations" do
   context "Saving a new document that is invalid" do
     before do
       @document = Doc do

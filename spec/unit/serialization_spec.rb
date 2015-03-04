@@ -36,7 +36,7 @@ module Serialization
     key :name, String
   end
 
-  describe "Serialization", :working => true do
+  describe "Serialization" do
     before do
       @document = EDoc do
         key :name, String

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 module OneAssociationSpec
   include MarkMapper::Plugins::Associations
-  describe "OneAssociation", :working => true do
+  describe "OneAssociation" do
 
     context "type_key_name" do
       it "should be _type" do

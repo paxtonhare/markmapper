@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "OneEmbeddedProxy", :working => true do
+describe "OneEmbeddedProxy" do
   before do
     @post_class = Doc('Post') do
       key :title, String

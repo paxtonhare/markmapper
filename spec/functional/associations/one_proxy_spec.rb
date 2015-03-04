@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "OneProxy", :working => true do
+describe "OneProxy" do
   before do
     @post_class = Doc('Post')
     @author_class = Doc do

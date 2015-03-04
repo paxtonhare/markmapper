@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe "Key", :working => true do
+describe "Key" do
   context ".new with no id and _id of type integer" do
     it "should not error" do
       lambda {

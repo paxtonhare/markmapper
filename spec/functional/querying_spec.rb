@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Querying", :working => true do
+describe "Querying" do
   let(:document) {
     d = Doc do
       key :first_name, String

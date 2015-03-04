@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Rails integration", :working => true do
+describe "Rails integration" do
   context "Document" do
     before do
       @klass = Doc('Post') do

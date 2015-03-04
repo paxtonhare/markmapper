@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Modifiers
-  describe "Modifiers", :working => true do
+  describe "Modifiers" do
     let(:page_class_with_compound_key) {
       Doc do
         key :_id,        Hash, :default => lambda { { 'n' => 42, 'i' => MarkLogic::ObjectId.new } }

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'support/models'
 
-describe "EmbeddedDocument", :working => true do
+describe "EmbeddedDocument" do
   before do
     @klass = Doc('Person') do
       key :name, String

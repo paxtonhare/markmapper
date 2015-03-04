@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "IdentityMap", :working => true do
+describe "IdentityMap" do
   def assert_in_map(*resources)
     [resources].flatten.each do |resource|
       MarkMapper::Plugins::IdentityMap.include?(resource).should be_truthy
@@ -237,7 +237,7 @@ describe "IdentityMap", :working => true do
     context "#find (with one id and options)" do
       before do
         @person = @person_class.create(:name => 'Fred')
-        @post1  = @person.posts.create(:title => 'I Love Mongo')
+        @post1  = @person.posts.create(:title => 'I Love MarkLogic')
         @post2  = @person.posts.create(:title => 'Migrations Suck!')
       end
 
@@ -438,7 +438,7 @@ describe "IdentityMap", :working => true do
 
       it "should not query when finding by _id and _type" do
         blog = Blog.create(:title => 'Blog')
-        post = BlogPost.create(:title => 'Mongo Rocks', :blog => blog)
+        post = BlogPost.create(:title => 'MarkLogic Rocks', :blog => blog)
         clear_identity_map
 
         blog = Item.find(blog.id)

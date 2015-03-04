@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Inspect", :working => true do
+describe "Inspect" do
   context "#inspect" do
     before do
       @document = Doc('User') do

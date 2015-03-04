@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Pagination", :working => true do
+describe "Pagination" do
   before do
     @document = Doc do
       key :first_name, String

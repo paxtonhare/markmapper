@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Rails Compatibility", :working => true do
+describe "Rails Compatibility" do
   module EmbeddedDocuments
     class Item
       include MarkMapper::EmbeddedDocument

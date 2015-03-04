@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Plugins", :working => true do
+describe "Plugins" do
   it "should default plugins to empty array" do
     Class.new { extend MarkMapper::Plugins }.plugins.should == []
   end

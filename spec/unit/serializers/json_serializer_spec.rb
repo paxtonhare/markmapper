@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module JsonSerialization
-  describe "JsonSerialization", :working => true do
+  describe "JsonSerialization" do
 
     # Helper function in case things change in the future
     # - replacing all those to_json calls was a nightmare

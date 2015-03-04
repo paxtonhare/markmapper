@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Extensions", :working => true do
+describe "Extensions" do
   context "DocumentNotValid" do
     it "should have document reader method" do
       doc_class = Doc()

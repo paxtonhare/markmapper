@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'support/models'
 
 module AssociationsSpec
-  describe "Associations", :working => true do
+  describe "Associations" do
     it "should allow changing class names" do
       class AwesomeUser
         include MarkMapper::Document

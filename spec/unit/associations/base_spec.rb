@@ -4,7 +4,7 @@ class FooMonster; end
 module AssociationSpec
   include MarkMapper::Plugins::Associations
 
-  describe MarkMapper::Plugins::Associations::Base, :working => true do
+  describe MarkMapper::Plugins::Associations::Base do
     it "should initialize with type and name" do
       base = ManyAssociation.new(:foos)
       base.name.should == :foos

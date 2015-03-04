@@ -1,11 +1,6 @@
 defaults: &defaults
   host: 127.0.0.1
   port: 27017
-  options:
-    w: 1
-    pool_size: 1
-    slave_ok: false
-    ssl: false
 
 development:
   <<: *defaults
@@ -20,5 +15,5 @@ test:
 production:
   <<: *defaults
   database: <%= database_name || app_name %>
-  username: <%%= ENV['MONGO_USERNAME'] %>
-  password: <%%= ENV['MONGO_PASSWORD'] %>
+  username: <%%= ENV['MARKLOGIC_USERNAME'] %>
+  password: <%%= ENV['MARKLOGIC_PASSWORD'] %>

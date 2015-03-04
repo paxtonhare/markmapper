@@ -128,8 +128,7 @@ Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
 MarkMapper.config.application.create if MarkMapper.config.application.stale?
 
 RSpec.configure do |config|
-  # config.filter_run_excluding :working => true
-  config.filter_run_excluding :skip => true
+  # config.filter_run_excluding :skip => true
   # config.filter_run :blah => true
   config.expect_with :rspec do |c|
     c.syntax = [:should, :expect]

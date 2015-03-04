@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MarkMapper::Plugins::Keys::Static, :working => true do
+describe MarkMapper::Plugins::Keys::Static do
   before do
     @klass = Class.new do
       include MarkMapper::Document

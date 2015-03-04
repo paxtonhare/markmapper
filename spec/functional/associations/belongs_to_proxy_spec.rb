@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "BelongsToProxy", :working => true do
+describe "BelongsToProxy" do
   before do
     @post_class = Doc()
     @comment_class = Doc do

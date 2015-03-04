@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "InArrayProxy", :working => true do
+describe "InArrayProxy" do
   context "description" do
     before do
       class ::List

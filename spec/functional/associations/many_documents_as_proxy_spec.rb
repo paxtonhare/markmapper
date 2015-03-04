@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "ManyDocumentsAsProxy", :working => true do
+describe "ManyDocumentsAsProxy" do
   before do
     Post.collection.remove
     PostComment.collection.remove

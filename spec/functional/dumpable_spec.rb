@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'active_support/cache/memory_store'
 
-describe "Documents with the Dumpable plugin", :working => true do
+describe "Documents with the Dumpable plugin" do
   let(:doc) { Doc { key :foo, String } }
   let(:answer) { Answer.create(:body => "answer body") }
   let(:store)  { ActiveSupport::Cache::MemoryStore.new(:size => 1.megabyte) }

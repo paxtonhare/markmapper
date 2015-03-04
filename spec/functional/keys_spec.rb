@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Keys", :working => true do
+describe "Keys" do
   it "should not have a disparity between the ivar and accessor" do
     doc = Doc do
       key :foo, String

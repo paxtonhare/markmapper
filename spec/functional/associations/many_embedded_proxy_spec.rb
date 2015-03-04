@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "ManyEmbeddedProxy", :working => true do
+describe "ManyEmbeddedProxy" do
   before do
     @comment_class = EDoc do
       key :name, String

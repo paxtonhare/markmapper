@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Documents with the Rails plugin", :working => true do
+describe "Documents with the Rails plugin" do
   let(:doc) { Doc {
     key :foo, String
     key :long_field, String, :alias => "lf"

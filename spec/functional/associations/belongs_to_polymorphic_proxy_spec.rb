@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe "BelongsToPolymorphicProxy", :working => true do
+describe "BelongsToPolymorphicProxy" do
   before do
     Status.collection.remove
     Project.collection.remove

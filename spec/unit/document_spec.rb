@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe "Document", :working => true do
+describe "Document" do
   context "The Document Class" do
     before do
       @document = Doc()

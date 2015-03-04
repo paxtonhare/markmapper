@@ -11,7 +11,7 @@ class FooType < Struct.new(:bar)
   end
 end
 
-describe "Key", :working => true do
+describe "Key" do
   Key = MarkMapper::Plugins::Keys::Key
 
   context "Initializing a new key" do

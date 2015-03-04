@@ -26,7 +26,7 @@ module CallbacksSupport
   end
 end
 
-describe "Callbacks", :working => true do
+describe "Callbacks" do
   CreateCallbackOrder = [
     :before_validation,
     :after_validation,
