@@ -2,9 +2,9 @@
 module MarkMapper
   module Plugins
     module Querying
-      Methods = Madmin::Methods + [:delete, :delete_all, :destroy, :destroy_all, :find!]
+      Methods = MarkMapper::Methods + [:delete, :delete_all, :destroy, :destroy_all, :find!]
 
-      class DecoratedMadminQuery < ::Madmin::Query
+      class DecoratedMarkMapperQuery < ::MarkMapper::Query
         include DynamicQuerying::ClassMethods
 
         def delete(*ids)
@@ -63,7 +63,7 @@ module MarkMapper
           def method_missing(method, *args, &block)
             return super unless model.respond_to?(method)
             result = model.send(method, *args, &block)
-            if result.is_a?(Madmin::Query)
+            if result.is_a?(MarkMapper::Query)
               merge(result)
             else
               result

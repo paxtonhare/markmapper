@@ -3,7 +3,7 @@ module MarkMapper
   module Extensions
     module ObjectId
       def to_marklogic(value)
-        Madmin.to_object_id(value)
+        MarkMapper.to_object_id(value)
       end
 
       def from_marklogic(value)

@@ -8,7 +8,6 @@ gem 'rest-client', '1.6.7'
 
 platforms :ruby do
   gem "marklogic", :path => '/Users/phare/src/ml/marklogic'
-  gem "madmin", :path => '/Users/phare/src/hs/madmin'
 end
 
 platforms :rbx do

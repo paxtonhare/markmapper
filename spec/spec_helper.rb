@@ -152,3 +152,5 @@ RSpec.configure do |config|
   end
 end
 
+operators = %w{gt lt ge le ne eq asc desc}
+SymbolOperators = operators

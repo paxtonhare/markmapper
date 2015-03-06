@@ -6,5 +6,3 @@ gem 'pry', :group => :test
 gem 'pry-byebug', :group => :test
 gem 'terminal-notifier-guard'
 gem 'rspec-nc'
-# gem "marklogic", :path => '/Users/phare/src/ml/marklogic'
-# gem "madmin", :path => '/Users/phare/src/hs/madmin'

@@ -1,9 +1,13 @@
 # encoding: UTF-8
-require 'madmin'
 require 'active_support'
 require 'active_support/core_ext'
 require 'active_model'
 require "mark_mapper/railtie" if defined?(Rails)
+require 'set'
+require 'mark_mapper/criteria_hash'
+require 'mark_mapper/options_hash'
+require 'mark_mapper/query'
+require 'mark_mapper/pagination'
 
 I18n.load_path << File.expand_path('../mark_mapper/locale/en.yml', __FILE__)
 
@@ -91,6 +95,27 @@ module MarkMapper
 
   def self.config
     block_given? ? yield(Config) : Config
+  end
+
+  Methods = MarkMapper::Query::DSL.instance_methods.sort.map(&:to_sym)
+
+  def self.to_object_id(value)
+    return value if value.is_a?(MarkLogic::ObjectId)
+    return nil   if value.nil? || (value.respond_to?(:empty?) && value.empty?)
+
+    if MarkLogic::ObjectId.legal?(value.to_s)
+      MarkLogic::ObjectId.from_string(value.to_s)
+    else
+      value
+    end
+  end
+
+  # Private
+  ModifierString = '$'
+
+  # Internal
+  def self.modifier?(key)
+    key.to_s[0, 1] == ModifierString
   end
 end
 

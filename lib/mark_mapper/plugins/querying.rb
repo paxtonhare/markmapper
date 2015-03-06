@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require 'mark_mapper/plugins/querying/decorated_madmin_query'
+require 'mark_mapper/plugins/querying/decorated_markmapper_query'
 
 module MarkMapper
   module Plugins
@@ -48,7 +48,7 @@ module MarkMapper
 
         # @api private for now
         def query(options={})
-          query = MarkMapper::Plugins::Querying::DecoratedMadminQuery.new(collection, :transformer => transformer)
+          query = MarkMapper::Plugins::Querying::DecoratedMarkMapperQuery.new(collection, :transformer => transformer)
           query.object_ids(object_id_keys)
           query.amend(options)
           query.model(self)
@@ -58,7 +58,7 @@ module MarkMapper
 
         # @api private for now
         def criteria_hash(criteria={})
-          Madmin::CriteriaHash.new(criteria, :object_ids => object_id_keys)
+          MarkMapper::CriteriaHash.new(criteria, :object_ids => object_id_keys)
         end
 
         private

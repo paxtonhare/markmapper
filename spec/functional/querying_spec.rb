@@ -983,7 +983,7 @@ describe "Querying" do
 
   context "#scoped" do
     it "should return a Query" do
-      document.scoped.should be_a MarkMapper::Plugins::Querying::DecoratedMadminQuery
+      document.scoped.should be_a MarkMapper::Plugins::Querying::DecoratedMarkMapperQuery
       document.scoped.criteria_hash.should be_empty
     end
   end

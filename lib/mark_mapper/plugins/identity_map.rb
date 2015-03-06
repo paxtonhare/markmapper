@@ -108,7 +108,7 @@ module MarkMapper
   end
 end
 
-module MadminMethods
+module MarkMapperMethods
   module ClassMethods
     extend ActiveSupport::Concern
 
@@ -142,4 +142,4 @@ module MadminMethods
   end
 end
 
-::MarkMapper::Plugins::Querying::DecoratedMadminQuery.send :include, ::MadminMethods::ClassMethods
+::MarkMapper::Plugins::Querying::DecoratedMarkMapperQuery.send :include, ::MarkMapperMethods::ClassMethods

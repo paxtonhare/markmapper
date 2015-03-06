@@ -90,7 +90,7 @@ module MarkMapper
             if klass.respond_to?(method)
               result = klass.send(method, *args, &block)
               case result
-              when Madmin::Query
+              when MarkMapper::Query
                 query.merge result
 
               # If we got a single record of this classas a result, return it

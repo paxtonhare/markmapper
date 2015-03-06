@@ -28,7 +28,7 @@ describe "Scopes" do
       end
 
       it "should return a plucky query" do
-        @document.old.should be_kind_of(Madmin::Query)
+        @document.old.should be_kind_of(MarkMapper::Query)
       end
 
       it "should work" do
