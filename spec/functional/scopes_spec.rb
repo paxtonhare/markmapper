@@ -7,11 +7,7 @@ describe "Scopes" do
         key :name, String
         key :age, Integer
         timestamps!
-
-        index :age, :type => Integer
       end
-
-      MarkMapper.config.application.create if MarkMapper.config.application.stale?
     end
 
     context "basic scopes" do
@@ -27,7 +23,7 @@ describe "Scopes" do
         @document.scopes.keys.map(&:to_s).sort.should == %w(old teens)
       end
 
-      it "should return a plucky query" do
+      it "should return a query" do
         @document.old.should be_kind_of(MarkMapper::Query)
       end
 

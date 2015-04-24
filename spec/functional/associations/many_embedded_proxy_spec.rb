@@ -103,12 +103,12 @@ describe "ManyEmbeddedProxy" do
 
   context "passing documents between versions of code" do
     before do
-      @old_klass = Doc do
+      @old_klass = Doc "Old" do
         set_collection_name 'generic_parents'
         key :name, String
       end
 
-      @updated_klass = Doc do
+      @updated_klass = Doc "Updated" do
         set_collection_name 'generic_parents'
         key :name, String
       end
@@ -125,7 +125,7 @@ describe "ManyEmbeddedProxy" do
 
       lambda {
         loaded_in_new_code = @updated_klass.find_by_name('created in old code')
-        loaded_in_new_code.pets.should == []
+        expect(loaded_in_new_code.pets).to eq([])
       }.should_not raise_error
     end
   end

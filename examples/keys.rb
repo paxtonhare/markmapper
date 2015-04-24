@@ -1,8 +1,8 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 class User
   include MarkMapper::Document
@@ -38,3 +38,5 @@ john.links["Ruby on Rails"] = "http://www.rubyonrails.com"
 john.save
 
 pp john
+
+MarkMapper.application.drop

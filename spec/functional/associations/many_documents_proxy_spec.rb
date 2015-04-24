@@ -58,7 +58,7 @@ describe "ManyDocumentsProxy" do
     instance = @owner_class.new
     instance.pets.should == []
     instance.pets.build
-    instance.pets.should_not be_empty
+    expect(instance.pets.empty?).to eq(false)
   end
 
   it "should be able to iterate associated documents in a callback" do
@@ -635,11 +635,11 @@ describe "ManyDocumentsProxy" do
 
     context "include?" do
       it "should return true if in association" do
-        @project1.statuses.should include(@brand_new)
+        expect(@project1.statuses.include?(@brand_new)).to eq(true)
       end
 
       it "should return false if not in association" do
-        @project1.statuses.should_not include(@in_progress)
+        expect(@project1.statuses.include?(@in_progress)).to eq(false)
       end
     end
 
@@ -957,12 +957,12 @@ describe "ManyDocumentsProxy" do
 
     it "should should find associated instances by an object ID" do
       article = News::Article.create(:paper_id => @paper.id)
-      @paper.articles.should include(article)
+      expect(@paper.articles.include?(article)).to eq(true)
     end
 
     it "should should find associated instances by a string" do
       article = News::Article.create(:paper_id => @paper.id.to_s)
-      @paper.articles.should include(article)
+      expect(@paper.articles.include?(article)).to eq(true)
     end
   end
 end

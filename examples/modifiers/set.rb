@@ -1,8 +1,8 @@
 $LOAD_PATH.unshift(File.expand_path('../../../lib', __FILE__))
-require 'mark_mapper'
+require_relative '../sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 class User
   include MarkMapper::Document
@@ -23,3 +23,5 @@ pp john.reload
 
 john.set(:tags => %w[something different])
 pp john.reload
+
+MarkMapper.application.drop

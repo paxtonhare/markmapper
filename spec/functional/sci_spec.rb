@@ -52,13 +52,6 @@ describe "Single collection inheritance (document)" do
       DocParent.key?(:_type).should be_truthy
     end
 
-    # it "should use modifiers properly" do
-    #   binding.pry
-    #   DocDaughter.increment({:title => 'Home'}, {:day_count => 1})
-    #   DocDaughter.first.should_not be_nil
-    #   DocDaughter.first._type.should == "DocDaughter"
-    # end
-
     it "should use the same connection in the subclass" do
       parent_class = Class.new do
         include MarkMapper::Document
@@ -75,14 +68,14 @@ describe "Single collection inheritance (document)" do
     it "should use the same database in the subclass" do
       parent_class = Class.new do
         include MarkMapper::Document
-        database = MarkMapper.config.application.content_databases[0]
+        database = MarkMapper.application.content_databases[0]
       end
 
       child_class = Class.new(parent_class) do
         include MarkMapper::Document
       end
 
-      child_class.database.should == MarkMapper.config.application.content_databases[0]
+      child_class.database.should == MarkMapper.application.content_databases[0]
     end
 
     it "should use the same collection in the subclass" do

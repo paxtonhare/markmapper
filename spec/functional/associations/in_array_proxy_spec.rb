@@ -16,8 +16,6 @@ describe "InArrayProxy" do
       end
       User.collection.remove
       List.collection.remove
-
-      MarkMapper.config.application.create_indexes if MarkMapper.config.application.stale?
     end
 
     after do

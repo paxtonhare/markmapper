@@ -38,8 +38,6 @@ class Post
   many :comments, :as => :commentable, :class_name => 'PostComment'
 
   timestamps!
-
-  index :body, :type => String
 end
 
 class PostComment
@@ -53,8 +51,6 @@ class PostComment
   belongs_to :commentable, :polymorphic => true
 
   timestamps!
-
-  index :name, :type => String
 end
 
 class Address
@@ -74,7 +70,6 @@ class Message
   key :room_id, ObjectId
 
   belongs_to :room
-  index :position, :type => Integer
 end
 
 class Enter < Message; end
@@ -157,7 +152,6 @@ class Status
 
   belongs_to :project
   belongs_to :target, :polymorphic => true
-  index :position, :type => Integer
 end
 
 class Media

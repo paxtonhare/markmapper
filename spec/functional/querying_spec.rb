@@ -2,18 +2,12 @@ require 'spec_helper'
 
 describe "Querying" do
   let(:document) {
-    d = Doc do
+    Doc do
       key :first_name, String
       key :last_name, String
       key :age, Integer
       key :date, Date
-
-      index :first_name, :type => String
-      index :age, :type => Integer
     end
-
-    MarkMapper.config.application.create if MarkMapper.config.application.stale?
-    d
   }
 
   context ".query" do

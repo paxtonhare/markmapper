@@ -1,8 +1,8 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative '../sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 class Field
   include MarkMapper::EmbeddedDocument
@@ -27,3 +27,5 @@ puts template.valid? # false
 # Name is present on embedded field
 template = Template.new(:fields => [Field.new(:name => 'Yay')])
 puts template.valid? # true
+
+MarkMapper.application.drop

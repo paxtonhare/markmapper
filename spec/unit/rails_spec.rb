@@ -20,7 +20,7 @@ describe "Rails integration" do
           end
         end
 
-        @klass.new.posts.should respond_to(:foo_bars)
+        expect(@klass.new.posts.respond_to?(:foo_bars)).to eq(true)
       end
 
       it "should alias has_one to one" do

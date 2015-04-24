@@ -1,8 +1,10 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.tap do |app|
+  app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:age, :type => 'int'))
+end.sync
 
 class User
   include MarkMapper::Document
@@ -15,7 +17,7 @@ class User
 
   # dynamic scopes with parameters
   scope :by_name,  lambda { |name| where(:name => name) }
-  scope :by_ages,  lambda { |low, high| where(:age.gte => low, :age.lte => high) }
+  scope :by_ages,  lambda { |low, high| where(:age.ge => low, :age.le => high) }
 
   # Yep, even plain old methods work as long as they return a query
   def self.by_tag(tag)
@@ -50,3 +52,5 @@ pp User.by_ages(20, 40).by_tag('ruby').all
 
 # scope made using method that returns scope
 pp User.twenties.all
+
+MarkMapper.application.drop

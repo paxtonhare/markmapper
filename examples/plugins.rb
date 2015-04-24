@@ -1,8 +1,8 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 # To create your own plugin, just create a module that
 # extends ActiveSupport::Concern.
@@ -36,3 +36,5 @@ end
 puts User.foo
 puts User.new.foo
 puts User.key?(:foo)
+
+MarkMapper.application.drop

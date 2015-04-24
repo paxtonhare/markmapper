@@ -115,7 +115,6 @@ module MarkMapperMethods
     included do
       attr_accessor :identity_map
 
-      # Ensure that these aliased methods in plucky also get overridden.
       alias_method :first, :find_one
       alias_method :each, :find_each
     end

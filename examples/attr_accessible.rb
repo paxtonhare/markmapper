@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 class User
   include MarkMapper::Document
@@ -20,3 +20,5 @@ puts user.admin # false
 user.admin = true
 user.save
 puts user.admin # true
+
+MarkMapper.application.drop

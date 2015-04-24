@@ -28,6 +28,5 @@ desc 'Tags version, pushes to remote, and pushes gem'
 task :release => :build do
   sh "git tag v#{MarkMapper::Version}"
   sh "git push origin master"
-  sh "git push origin v#{MarkMapper::Version}"
   sh "gem push mark_mapper-#{MarkMapper::Version}.gem"
 end

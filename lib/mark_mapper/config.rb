@@ -43,7 +43,7 @@ module MarkMapper
     # @param [ String ] path The path to the file.
     # @param [ String, Symbol ] environment The environment to load.
     #
-    # @since 1.0.0
+    # @since 0.0.1
     def load!(path, environment = nil)
       options = load_yaml(path, environment)
       load_configuration(options) if options.present?
@@ -56,7 +56,7 @@ module MarkMapper
     #
     # @param [ Hash ] options The configuration options.
     #
-    # @since 1.0.0
+    # @since 0.0.1
     def load_configuration(options)
       options.each_pair do |key, value|
         if settings.has_key? key.to_sym

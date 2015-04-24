@@ -1,4 +1,5 @@
 # encoding: UTF-8
+require 'marklogic'
 require 'active_support'
 require 'active_support/core_ext'
 require 'active_model'
@@ -13,7 +14,6 @@ I18n.load_path << File.expand_path('../mark_mapper/locale/en.yml', __FILE__)
 
 module MarkMapper
   autoload :Connection,             'mark_mapper/connection'
-  autoload :Config,                   'mark_mapper/config'
 
   autoload :Error,                  'mark_mapper/exceptions'
   autoload :DocumentNotFound,       'mark_mapper/exceptions'
@@ -92,10 +92,6 @@ module MarkMapper
   end
 
   extend Connection
-
-  def self.config
-    block_given? ? yield(Config) : Config
-  end
 
   Methods = MarkMapper::Query::DSL.instance_methods.sort.map(&:to_sym)
 

@@ -17,7 +17,7 @@ describe "Document" do
     end
 
     it "should use default database by default" do
-      @document.database.should == MarkMapper.config.application.content_databases[0]
+      @document.database.should == MarkMapper.application.content_databases[0]
     end
 
     it "should have a connection" do
@@ -39,7 +39,7 @@ describe "Document" do
       @document.database.database_name.should == 'test2'
 
       another_document = Doc()
-      another_document.database.database_name.should == MarkMapper.database.database_name
+      another_document.database.database_name.should == MarkMapper.application.content_databases[0].database_name
     end
 
     it "should allow setting the collection name" do

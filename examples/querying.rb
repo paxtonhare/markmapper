@@ -1,8 +1,10 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.tap do |app|
+  app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:age, :type => 'int'))
+end.sync
 
 class User
   include MarkMapper::Document
@@ -21,8 +23,8 @@ User.create(:name => 'Steve', :tags => %w[html5 css3], :age => 27)
 
   User.all(:name => 'John'),
   User.all(:tags => %w[marklogic]),
-  User.all(:tags.all => %w[ruby marklogic]),
-  User.all(:age.gte => 30),
+  # User.all(:tags.all => %w[ruby marklogic]),
+  User.all(:age.ge => 30),
 
   User.where(:age.gt => 27).sort(:age).all,
   User.where(:age.gt => 27).sort(:age.desc).all,
@@ -33,3 +35,5 @@ User.create(:name => 'Steve', :tags => %w[html5 css3], :age => 27)
   pp result
   puts
 end
+
+MarkMapper.application.drop

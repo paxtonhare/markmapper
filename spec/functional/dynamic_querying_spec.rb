@@ -9,11 +9,7 @@ describe "Dynamic Querying" do
       key :last_name, String
       key :age, Integer
       key :date, Date
-
-      index :age, :type => Integer
     end
-
-    MarkMapper.config.application.create if MarkMapper.config.application.stale?
 
     @doc1 = @document.create(:first_name => 'John',   :last_name => 'Nunemaker', :age => 27)
     @doc2 = @document.create(:first_name => 'Steve',  :last_name => 'Smith',     :age => 28)

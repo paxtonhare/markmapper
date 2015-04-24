@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 class User
   include MarkMapper::Document
@@ -22,3 +22,5 @@ puts User.create.cache_key(:foo, :bar, :baz) # User/:id/foo/bar/baz
 # When updated_at key exists it will be used
 User.timestamps!
 puts User.create.cache_key  # User/:id-:updated_at (ie: User/4c7a940cbcd1b3319b000003-20100829170828)
+
+MarkMapper.application.drop

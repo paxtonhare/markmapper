@@ -36,7 +36,7 @@ module MarkMapper
 
         def database
           assert_supported
-          @database ||= MarkMapper.config.application.content_databases[0]
+          @database ||= MarkMapper.application.content_databases[0]
         end
 
         def set_collection_name(name)

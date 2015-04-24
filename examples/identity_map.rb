@@ -1,8 +1,8 @@
 $LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
-require 'mark_mapper'
+require_relative './sample_app'
 require 'pp'
 
-MarkMapper.database = 'testing'
+MarkMapper.application.create
 
 MarkMapper::Plugins::IdentityMap.enabled = true
 
@@ -26,3 +26,5 @@ puts "#{User.find(user.id).object_id} != #{user.object_id}"
 # User gets removed from map on destroy
 user = User.create
 user.destroy
+
+MarkMapper.application.drop

@@ -6,7 +6,6 @@ require 'fileutils'
 require 'timecop'
 require 'pp'
 require 'pry'
-# require "generator_spec/test_case"
 
 if RUBY_PLATFORM != "java"
   if ENV['TRAVIS']
@@ -55,7 +54,6 @@ PASSWORD = ENV["MARKMAPPER_SPEC_PASSWORD"]
 ADMIN_USER = ENV["MARKMAPPER_SPEC_ADMIN_USER"]
 ADMIN_PASSWORD = ENV["MARKMAPPER_SPEC_ADMIN_PASSWORD"]
 
-# binding.pry
 MarkLogic::Connection.configure({
   :host => HOST,
   :manage_port => MANAGE_PORT,
@@ -66,18 +64,10 @@ MarkLogic::Connection.configure({
 })
 
 CONNECTION = MarkLogic::Connection.new(HOST, PORT)
-
-file = File.join(File.dirname(__FILE__), "config", "mark_mapper.yml")
-MarkMapper.config.load!(file, :test)
-
-# app = MarkLogic::Application.new("markmapper-application-test", :port => PORT)
-# app.create if app.stale?
-MarkMapper.config.application.stale?
+MarkMapper.application = MarkLogic::Application.new("markmapper-application-test", connection: CONNECTION )
+MarkMapper.application.stale?
 
 MarkMapper.logger.level = Logger::DEBUG
-
-# file = File.join(File.dirname(__FILE__), "config", "mark_mapper.yml")
-# MarkMapper.config.load!(file, :test)
 
 def Doc(name='Class', &block)
   klass = Class.new
@@ -93,7 +83,7 @@ def Doc(name='Class', &block)
   end
 
   klass.class_eval(&block) if block_given?
-  klass.collection.remove
+  klass.collection.remove if klass.database.exists?
   klass
 end
 
@@ -119,17 +109,10 @@ log_dir = File.expand_path('../../log', __FILE__)
 FileUtils.mkdir_p(log_dir) unless File.exist?(log_dir)
 logger = Logger.new(log_dir + '/test.log')
 
-MarkMapper.connection = CONNECTION
-MarkMapper.database_name = MarkMapper.config.application.app_name + "-content"
-
-# MarkMapper.database.collections.each { |c| c.drop_indexes }
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
-
-MarkMapper.config.application.create if MarkMapper.config.application.stale?
 
 RSpec.configure do |config|
   # config.filter_run_excluding :skip => true
-  # config.filter_run :blah => true
   config.expect_with :rspec do |c|
     c.syntax = [:should, :expect]
   end
@@ -137,7 +120,18 @@ RSpec.configure do |config|
   config.fail_fast = true
 
   config.before(:all) do
-    MarkMapper.config.application.content_databases[0].clear
+    @application = MarkMapper.application.tap do |app|
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:_id, :type => 'string'))
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:name, :type => 'string'))
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:body, :type => 'string'))
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:age, :type => 'int'))
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:first_name, :type => 'string'))
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:position, :type => 'int'))
+      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:weight, :type => 'int'))
+    end
+    @application.sync
+    @database = @application.content_databases[0]
+    @database.clear
   end
 
   config.around(:each, :without_connection) do |example|
@@ -148,7 +142,7 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     puts "CLEANING UP AFTER ALL TESTS FINISHED"
-    # MarkLogic::Application.new("markmapper-application-test", :port => PORT).drop
+    MarkLogic::Application.new("markmapper-application-test", :port => PORT).drop
   end
 end
 

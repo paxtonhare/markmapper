@@ -8,12 +8,7 @@ describe "Pagination" do
       key :age, Integer
 
       def self.per_page; 1 end
-
-      index :first_name, :type => String
-      index :age, :type => Integer
     end
-
-    MarkMapper.config.application.create if MarkMapper.config.application.stale?
 
     @doc1 = @document.create(:first_name => 'John',  :last_name => 'Nunemaker', :age => '27')
     @doc2 = @document.create(:first_name => 'Steve', :last_name => 'Smith',     :age => '28')

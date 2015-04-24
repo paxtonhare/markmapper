@@ -2,24 +2,10 @@ require 'spec_helper'
 
 describe MarkMapper::Query do
   before do
-    options = {
-      :connection => CONNECTION,
-      :port => PORT
-    }
-
-    @application = MarkLogic::Application.new("markmapper-application-test", options).tap do |app|
-      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:_id, :type => 'string'))
-      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:name, :type => 'string'))
-      app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:age, :type => 'int'))
-    end
-    @application.create unless @application.exists?
-    @application.create_indexes if @application.stale?
-
     @chris = { "_id" => 'chris', "age" => 26, "name" => 'Chris' }
     @steve = { "_id" => 'steve', "age" => 29, "name" => 'Steve' }
     @john = { "_id" => 'john', "age" => 28, "name" => 'John' }
 
-    @database = @application.content_databases[0]
     @collection = @database.collection("users")
     @collection.drop
     @collection.insert(@chris)

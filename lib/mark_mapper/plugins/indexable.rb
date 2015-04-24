@@ -11,7 +11,7 @@ module MarkMapper
         #
         # @return[ Hash ] A hash containing all the index definitions
         #
-        # @since 1.0.0
+        # @since 0.0.1
         def index_defs
           @index_defs ||= {}
         end
@@ -27,7 +27,7 @@ module MarkMapper
         # @option options [ String ] :type The atomic type of the element to index.
         # @option options [ Boolean ] :facet Whether to facet on this element index or not
         #
-        # @since 1.0.0
+        # @since 0.0.1
         def index(name, options = {})
           options[:type] ||= String
           options[:type] = options[:type].xs_type if options[:type].respond_to?(:xs_type)
@@ -45,7 +45,7 @@ module MarkMapper
 
           if !index_defs.has_key?(name.to_s)
             index_defs[name.to_s] = new_index
-            MarkMapper.config.application.add_index(new_index)
+            MarkMapper.application.add_index(new_index)
           end
         end
 
@@ -57,7 +57,7 @@ module MarkMapper
         #
         # @param [ String, Symbol ] name The name of the index to remove
         #
-        # @since 1.0.0
+        # @since 0.0.1
         def remove_index(name)
           index_defs.delete name.to_s
         end
@@ -67,7 +67,7 @@ module MarkMapper
         #
         # @return [ String ] XML configuration
         #
-        # @since 1.0.0
+        # @since 0.0.1
         # def index_setup_xml
         #  xml = ""
         #  index_defs.values do |index|
