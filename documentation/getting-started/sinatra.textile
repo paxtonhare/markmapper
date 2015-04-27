@@ -1,0 +1,32 @@
+---
+layout: documentation
+title: Installation in Sinatra
+---
+
+First, add MarkMapper to your @Gemfile@, and run @bundle install@:
+
+{% highlight ruby %}
+gem 'mark_mapper'
+{% endhighlight %}
+
+If you're not using @Bundler.require@ in the top of your Sinatra application then you'll need to require the MarkMapper library:
+
+{% highlight ruby %}
+require 'mark_mapper'
+{% endhighlight %}
+
+You'll also need to set up your MarkLogic connection in your @configure@ method call.
+
+{% highlight ruby %}
+configure do
+  MarkMapper.setup({
+    'production' => {
+      'host' => ENV['MARKLOGIC_HOST'],
+      'port' => ENV['MARKLOGIC_PORT']
+    }
+  }, 'production')
+end
+{% endhighlight %}
+
+You can now define your models and start using MarkMapper in Sinatra!
+

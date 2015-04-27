@@ -1,0 +1,28 @@
+---
+layout: documentation
+title: Single Collection Inheritance
+---
+
+Single Collection Inheritance ("SCI") allows you to store multiple types of similar documents into a single collection. The most common case is when you have a hierarchy of objects that inherit behavior and attributes.
+
+{% highlight ruby %}
+class Field
+  include MarkMapper::Document
+  key :name, :required => true
+end
+
+class FileUpload < Field
+  plugin Joint
+  attachment :file
+  validates_length_of :file_size, :minimum => 0, :maximum => 10.megabytes
+end
+
+class TextField < Field
+end
+
+class RadioButton < Field
+  many :options
+end
+{% endhighlight %}
+
+When you inherit from a model, MarkMapper adds at @_type@ attribute to your model, which is set when your model is created.

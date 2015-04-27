@@ -1,0 +1,89 @@
+---
+layout: documentation
+title: Modifiers
+---
+
+Along with traditional updates (i.e. replacing an entire document), MarkLogic supports "atomic, in-place updates":http://docs.marklogic.com/REST/POST/v1/documents@uri=%5Bdb-uri%5D, allowing you to update existing values for a document. Currently, MarkMapper is not taking advantage of this feature and is still doing full document updates.
+
+Let's start with a simple Page model:
+
+{% highlight ruby %}
+class Page
+  include MarkMapper::Document
+
+  key :title,       String
+  key :day_count,   Integer, :default => 0
+  key :week_count,  Integer, :default => 0
+  key :month_count, Integer, :default => 0
+  key :tags,        Array
+end
+{% endhighlight %}
+
+* "Operations":#operations
+** "set":#set
+** "unset":#unset
+** "push":#push
+** "push_all":#push_all
+* "Options":#options
+* "Notes":#notes
+* "Related Resources":#related_resources
+
+h2(#operations). Operations
+
+The atomic modifier operations can be performed directly on instances of your MarkMapper class, or on a collection by passing in the ID(s) or criteria of the documents you wish to modify.
+
+h3(#set). set
+
+Set the values for the keys.
+
+{% highlight ruby %}
+@page.set(:title => "New Home")
+Page.set({:title => 'Home'}, :title => "New Home")
+Page.set(@page.id, @page2.id, :title => "New Home")
+{% endhighlight %}
+
+h3(#unset). unset
+
+Unset or remove the given keys.
+
+{% highlight ruby %}
+@page.unset(:title)
+Page.unset({:title => 'Home'}, :title)
+Page.unset(@page.id, @page2.id, :title)
+{% endhighlight %}
+
+h3(#push). push
+
+Append *one* value to the array key.
+
+{% highlight ruby %}
+@page.push(:tags => 'foo')
+Page.push({:title => 'Home'}, :tags => 'foo')
+Page.push(@page.id, @page2.id, :tags => 'foo')
+{% endhighlight %}
+
+h3(#push_all). push_all
+
+Append *several* values to the array key.
+
+{% highlight ruby %}
+@page.push_all(:tags => ['foo','bar'])
+Page.push_all({:title => 'Home'}, :tags => ['foo','bar'])
+Page.push_all(@page.id, @page2.id, :tags => ['foo','bar'])
+{% endhighlight %}
+
+h2(#notes). Notes
+
+When applying a modifier operation on a variable (local or instance), make sure to reload the variable. MarkMapper does not update the state of the variable unless you explicitly tell it to like so:
+
+{% highlight ruby %}
+@page.set(:title => "Something New")
+@page.title # => "Something Old"
+@page.reload
+@page.title # => "Something New"
+{% endhighlight %}
+
+
+h2(#related_resources). Related Resources
+
+"MarkLogic Partial Update Documentation":http://docs.marklogic.com/REST/POST/v1/documents@uri=%5Bdb-uri%5D

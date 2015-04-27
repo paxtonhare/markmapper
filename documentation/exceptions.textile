@@ -1,0 +1,12 @@
+---
+layout: documentation
+title: Exceptions
+---
+
+All MarkMapper exceptions inherit from MarkMapper::Error, which inherits from Ruby's StandardError.
+
+* *MarkMapper::DocumentNotFound*: Raised when document expected to exist, but not found in database (ie: find!).
+* *MarkMapper::InvalidScheme*: Raised when connecting using URI with incorrect scheme.
+* *MarkMapper::NotSupported*: Raised when trying to do something not supported, mostly with embedded documents.
+* *MarkMapper::DocumentNotValid*: Raised when creating, updating or saving with ! and a document is not valid.
+* *MarkMapper::AccessibleOrProtected*: Raised when attr_accessible and attr_protected are both called on the same model.

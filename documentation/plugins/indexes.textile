@@ -1,0 +1,47 @@
+---
+layout: documentation
+title: Indexes
+---
+
+By default MarkMapper will leverage the "cts:json-property-value-query":http://docs.marklogic.com/cts:json-property-value-query under the covers. cts:json-property-value-query leverages MarkLogic's Universal Index.
+
+In order to peform range queries or sort results you will need to enable Range Indexes.
+
+MarkMapper creates a default Range Index on the _id key, but since MarkMapper allows ad hoc queries for more intuitive data access, you need to be aware of how to index those queries as well.
+
+h2. Range Index on a single key
+
+Let's set up an example document on which we will build a few indexes:
+
+{% highlight ruby %}
+class User
+  include MarkMapper::Document
+
+  key :first_name, String
+  key :last_name, String
+  key :age, Integer
+end
+{% endhighlight %}
+
+As we said above, any instance of this class will have _id key automatically indexed. However, if we wanted to sort by age, MarkLogic requires a Range Index to optimize the query.
+
+In a Rails application the following code would go in @config/initializers/markmapper.rb@:
+
+{% highlight ruby %}
+MarkMapper.application.tap do |app|
+  app.add_index(MarkLogic::DatabaseSettings::RangeElementIndex.new(:age, :type => 'int'))
+end
+{% endhighlight %}
+
+After updating the server configuration MarkLogic will index the *age* key for us and make sorting by age possible.
+
+{% highlight bash %}
+# create or updates the database configuration in MarkLogic
+rake db:create
+{% endhighlight %}
+
+
+
+h2. References
+
+* "MarkLogic indexes":http://docs.marklogic.com/guide/admin/range_index

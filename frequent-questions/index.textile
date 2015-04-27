@@ -1,0 +1,25 @@
+---
+layout: default
+title: Frequent Questions
+---
+
+h1. Frequent Questions
+
+h2. What is the difference between a Document and an Embedded Document?
+
+A "Document":/documentation/document.html is a top level entity that has its own collection. An "EmbeddedDocument":/documentation/embedded-document.html is embedded inside of a Document. For example, in the document below, Template would be a MarkMapper::Document and would have a filename key. Field would be a MarkMapper::EmbeddedDocument and would be stored inside of the template document as an array of fields.
+
+{% highlight javascript %}
+{
+  _id: ...
+  filename: 'product',
+  fields: [
+    {_id: ..., key: 'description', type: 'long_text'},
+    {_id: ..., key: 'weight', type: 'number'},
+  ]
+}
+{% endhighlight %}
+
+h2. When should I embed?
+
+The general rule of thumb is to embed when the document will *only* be shown in the context of the parent document. If you need access to the document outside of the parent, don't embed. Instead de-normalize and store the document in two places.

@@ -1,0 +1,37 @@
+---
+layout: documentation
+title: Contributing
+---
+
+h2. Documentation
+
+MarkMapper needs your help to make the documentation better. Here's how to contribute:
+
+
+# Fork the "repo on GitHub":http://github.com/paxtonhare/markmapper and check out the gh-pages branch.
+{% highlight sh %}
+$ git checkout -b gh-pages origin/gh-pages
+{% endhighlight %}
+# Install the github-pages gem
+{% highlight sh %}
+$ gem install github-pages
+{% endhighlight %}
+# Run the Jekyll server
+{% highlight sh %}
+jekyll serve --watch
+{% endhighlight %}
+# Open up http://localhost:4000/ in your web browser
+# Make your documentation changes
+# Push your changes and submit a pull request
+
+h3. Suggestions
+
+If you want to help with the documentation, but don't know how to help, "here are some ideas":https://github.com/paxtonhare/markmapper/issues?labels=documentation of things that need documented.
+
+h3. Guidelines
+
+In order to maintain quality, here are some guidelines for contributing to the MarkMapper documentation.
+
+* Don't document hacks or workarounds. If MarkMapper is broken or doesn't support something, note it in the docs and add an issue to the "issue tracker":http://github.com/paxtonhare/markmapper/issues.
+* Avoid narratives. People don't really care why you're writing the documentation, they just want to know how to use MarkMapper.
+* Be concise without sacrificing clarity.
