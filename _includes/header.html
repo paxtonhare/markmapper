@@ -4,20 +4,20 @@
     <meta charset="UTF-8" />
     <title>{% if page.title %}{{ page.title }} // {% endif %}MarkMapper</title>
 
-    <link href="/atom.xml" rel="alternate" type="application/atom+xml" title="MarkMapper Blog">
-    <link href="/stylesheets/markmapper.css" rel="stylesheet" type="text/css">
-    <link href="/stylesheets/syntax.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/atom.xml" rel="alternate" type="application/atom+xml" title="MarkMapper Blog">
+    <link href="{{ site.baseurl }}/stylesheets/markmapper.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/stylesheets/syntax.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div id="wrapper">
       <header>
-        <h1><a href="/">Mark <span style="color: #a0002e;">Mapper</span></a></h1>
+        <h1><a href="{{ site.baseurl }}/">Mark <span style="color: #a0002e;">Mapper</span></a></h1>
       </header>
       <nav>
         <ul id="nav">
           <li id="nav-home"><a href="/">Home</a></li>
-          <li id="nav-documentation"><a href="/documentation/">Documentation</a></li>
-          <li id="nav-frequent-questions"><a href="/frequent-questions/">FAQ</a></li>
+          <li id="nav-documentation"><a href="{{ site.baseurl }}/documentation/">Documentation</a></li>
+          <li id="nav-frequent-questions"><a href="{{ site.baseurl }}/frequent-questions/">FAQ</a></li>
           <li id="nav-code"><a href="https://github.com/paxtonhare/markmapper">Code</a></li>
         </ul>
         <form id="search">
