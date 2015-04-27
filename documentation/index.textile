@@ -3,4 +3,4 @@ layout: documentation
 title: Documentation
 ---
 
-The two document types are "Document":{{ site.baseurl }}/documentation/document.html and "EmbeddedDocument":{{ site.baseurl }}/documentation/embedded-document.html. They are made up of "Plugins":{{ site.baseurl }}/documentation/plugins/. Also built-in is a simple "type":{{ site.baseurl }}/documentation/types.html system that supports all of MarkLogic's types out of the box and allows you to add your own.
+The two document types are "Document":{{ site.baseurl }}/documentation/document.html and "EmbeddedDocument":{{ site.baseurl }}/documentation/documents/embedded-document.html. They are made up of "Plugins":{{ site.baseurl }}/documentation/plugins/. Also built-in is a simple "type":{{ site.baseurl }}/documentation/types.html system that supports all of MarkLogic's types out of the box and allows you to add your own.

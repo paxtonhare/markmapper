@@ -7,7 +7,7 @@ h1. Frequent Questions
 
 h2. What is the difference between a Document and an Embedded Document?
 
-A "Document":{{ site.baseurl }}/documentation/document.html is a top level entity that has its own collection. An "EmbeddedDocument":{{ site.baseurl }}/documentation/embedded-document.html is embedded inside of a Document. For example, in the document below, Template would be a MarkMapper::Document and would have a filename key. Field would be a MarkMapper::EmbeddedDocument and would be stored inside of the template document as an array of fields.
+A "Document":{{ site.baseurl }}/documentation/document.html is a top level entity that has its own collection. An "EmbeddedDocument":{{ site.baseurl }}/documentation/document/embedded-document.html is embedded inside of a Document. For example, in the document below, Template would be a MarkMapper::Document and would have a filename key. Field would be a MarkMapper::EmbeddedDocument and would be stored inside of the template document as an array of fields.
 
 {% highlight javascript %}
 {
