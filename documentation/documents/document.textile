@@ -3,7 +3,7 @@ layout: documentation
 title: Document
 ---
 
-Documents are first class citizens in MarkMapper. Out of the box you can persist them to collections and they can be related to other documents or embedded documents. They also come with all the typical dressings, such as "associations":/documentation/plugins/associations.html, "callbacks":/documentation/plugins/callbacks.html, "serialization":/documentation/plugins/serialization.html, "validations":/documentation/plugins/validations.html, and rich "querying":/documentation/plugins/querying.html.
+Documents are first class citizens in MarkMapper. Out of the box you can persist them to collections and they can be related to other documents or embedded documents. They also come with all the typical dressings, such as "associations":{{ site.baseurl }}/documentation/plugins/associations.html, "callbacks":{{ site.baseurl }}/documentation/plugins/callbacks.html, "serialization":{{ site.baseurl }}/documentation/plugins/serialization.html, "validations":{{ site.baseurl }}/documentation/plugins/validations.html, and rich "querying":{{ site.baseurl }}/documentation/plugins/querying.html.
 
 {% highlight ruby %}
 class Article

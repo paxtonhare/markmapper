@@ -84,7 +84,7 @@ In this one-to-one relations, an employee can only use one desk, and each desk c
 
 h2(#embedded). Embedded Documents
 
-When one document will almost always be fetched with another, it makes sense to just embed it into the same document. "@many@":#many and "@one@":#one associations can be used with embedded models. See "EmbeddedDocument":/documentation/embedded-document.html for more information.
+When one document will almost always be fetched with another, it makes sense to just embed it into the same document. "@many@":#many and "@one@":#one associations can be used with embedded models. See "EmbeddedDocument":{{ site.baseurl }}/documentation/embedded-document.html for more information.
 
 h2(#polymorphic). Polymorphic Associations
 
@@ -131,7 +131,7 @@ In the database, a comment might look like this when converted to Ruby:
 
 h3(#polymorphism-with-sci). Polymorphism with SCI
 
-Polymorphism can also be provided by "Single Collection Inheritance":/documentation/plugins/single-collection-inheritance.html.  The previous example could be rewritten:
+Polymorphism can also be provided by "Single Collection Inheritance":{{ site.baseurl }}/documentation/plugins/single-collection-inheritance.html.  The previous example could be rewritten:
 
 {% highlight ruby %}
 class Commentable
@@ -209,7 +209,7 @@ Single collection inheritance is needed for polymorphism on the @belongs_to@ sid
 
 h3(#embedded-polymorphism). Embedded Polymorphism
 
-"Embedded documents":/documentation/embedded-document.html may also be polymorphic.  Both "basic polymorphism":#basic-polymorphism and "SCI polymorphism":#polymorphism-with-sci work fine for all embedded associations.  Here's one example:
+"Embedded documents":{{ site.baseurl }}/documentation/embedded-document.html may also be polymorphic.  Both "basic polymorphism":#basic-polymorphism and "SCI polymorphism":#polymorphism-with-sci work fine for all embedded associations.  Here's one example:
 
 {% highlight ruby %}
 class Human

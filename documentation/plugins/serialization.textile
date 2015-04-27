@@ -58,7 +58,7 @@ Call @to_json@ or @to_xml@ on your model to return a serialized string, or @seri
 </user>
 {% endhighlight %}
 
-Note that "embedded documents":/documentation/embedded-document.html are included in the serialized output without any intervention.
+Note that "embedded documents":{{ site.baseurl }}/documentation/embedded-document.html are included in the serialized output without any intervention.
 
 h2. Customizing Serialized Output
 

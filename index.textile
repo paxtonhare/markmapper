@@ -48,4 +48,4 @@ User.where(:name => 'Brandon').first
 {% endhighlight %}
 
 
-Check out the "Documentation":/documentation/
+Check out the "Documentation":{{ site.baseurl }}/documentation/
