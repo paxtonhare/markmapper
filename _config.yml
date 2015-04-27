@@ -2,3 +2,4 @@ permalink:  /blog/:year/:month/:day/:title
 highlighter:  pygments
 lsi: false
 safe: true
+baseurl: '/markmapper'
