@@ -4,7 +4,7 @@ layout: default
 
 h1. A MarkLogic ORM for Ruby
 
-p(introduction). MarkMapper is based on the MongoMapper ORM by John Nunemaker. Built from the ground up to be simple and extendable, MarkMapper is a lovely way to model your applications and persist your data in MarkLogic. It has all the bells and whistles you need to get the job done and have fun along the way.
+p(introduction). MarkMapper is based on the "MongoMapper ORM":http://mongomapper.com. Built from the ground up to be simple and extendable, MarkMapper is a lovely way to model your applications and persist your data in MarkLogic. It has all the bells and whistles you need to get the job done and have fun along the way.
 
 h2. Getting Started
 
