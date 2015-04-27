@@ -13,6 +13,7 @@ module MarkMapper
 
       def create_config_file
         template 'marklogic.yml', File.join('config', 'marklogic.yml')
+        template 'markmapper.rb', File.join('config', 'initializers/markmapper.rb')
       end
 
       protected

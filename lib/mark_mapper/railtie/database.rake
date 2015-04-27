@@ -1,8 +1,10 @@
 namespace :db do
   unless Rake::Task.task_defined?("db:drop")
-    desc 'Drops all the collections for the database for the current Rails.env'
+    desc 'Drops all the documents for the database for the current Rails.env'
     task :drop => :environment do
-      MarkMapper.database.collections.select {|c| c.name !~ /\Asystem\./ }.each(&:drop)
+      MarkMapper.application.content_databases.each do |db|
+        db.clear
+      end
     end
   end
 
@@ -27,7 +29,8 @@ namespace :db do
 
   unless Rake::Task.task_defined?("db:create")
     task :create => :environment do
-      # noop
+      puts "creating database"
+      MarkMapper.application.create
     end
   end
 
@@ -53,12 +56,6 @@ namespace :db do
         MarkMapper.connect(Rails.env)
       end
     end
-  end
-
-  desc 'Load indexes from db/indexes.rb'
-  task :index => :environment do
-    indexes = File.join(Rails.root, 'db', 'indexes.rb')
-    load(indexes) if File.exist?(indexes)
   end
 end
 

@@ -12,23 +12,15 @@ module MarkMapper
     config.mark_mapper = ActiveSupport::OrderedOptions.new
 
     # Rescue responses similar to ActiveRecord.
-    # For rails 3.0 and 3.1
-    if Rails.version < "3.2"
-      ActionDispatch::ShowExceptions.rescue_responses['MarkMapper::DocumentNotFound']  = :not_found
-      ActionDispatch::ShowExceptions.rescue_responses['MarkMapper::InvalidKey']        = :unprocessable_entity
-      ActionDispatch::ShowExceptions.rescue_responses['MarkMapper::InvalidScheme']     = :unprocessable_entity
-      ActionDispatch::ShowExceptions.rescue_responses['MarkMapper::NotSupported']      = :unprocessable_entity
-    else
-      # For rails 3.2 and 4.0
-      config.action_dispatch.rescue_responses.merge!(
-          'MarkMapper::DocumentNotFound'  => :not_found,
-          'MarkMapper::InvalidKey'        => :unprocessable_entity,
-          'MarkMapper::InvalidScheme'     => :unprocessable_entity,
-          'MarkMapper::NotSupported'      => :unprocessable_entity
-        )
-    end
+    config.action_dispatch.rescue_responses.merge!(
+        'MarkMapper::DocumentNotFound'  => :not_found,
+        'MarkMapper::InvalidKey'        => :unprocessable_entity,
+        'MarkMapper::InvalidScheme'     => :unprocessable_entity,
+        'MarkMapper::NotSupported'      => :unprocessable_entity
+      )
 
     rake_tasks do
+      load "mark_mapper/railtie/application.rake"
       load "mark_mapper/railtie/database.rake"
     end
 

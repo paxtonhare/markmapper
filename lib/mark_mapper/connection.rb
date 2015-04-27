@@ -56,5 +56,35 @@ module MarkMapper
       raise 'Set config before connecting. MarkMapper.config = {...}' unless defined?(@@config)
       @@config
     end
+
+    def setup(config, environment, options={})
+      self.config = config
+      connect(environment, options)
+    end
+
+    def connect(environment, options={})
+      raise 'Set config before connecting. MongoMapper.config = {...}' if config.blank?
+      env = config_for_environment(environment)
+
+      MarkLogic::Connection.configure({
+        host: env['host'],
+        default_user: env['username'],
+        default_password: env['password']
+      })
+
+      MarkLogic::Connection.configure(manage_port: env['manage_port']) if env['manage_port']
+      MarkLogic::Connection.configure(admin_port: env['admin_port']) if env['admin_port']
+      MarkLogic::Connection.configure(app_services_port: env['app_services_port']) if env['app_services_port']
+
+      MarkMapper.application = MarkLogic::Application.new(
+        "markmapper-application-test",
+        connection: MarkLogic::Connection.new(env['host'], env['port'])
+      )
+      MarkMapper.application.stale?
+    end
+
+    def config_for_environment(environment)
+      config[environment.to_s] || {}
+    end
   end
 end
