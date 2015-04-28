@@ -24,17 +24,6 @@ describe "Key" do
     end
   end
 
-  context "#assign" do
-    it "should raise a deprecation warning" do
-      klass = Doc() do
-        key :_id, Integer
-      end
-      doc = klass.new
-      expect(doc).to receive(:warn).once
-      doc.assign({:x => :y})
-    end
-  end
-
   # TODO: Are these methods deprecated?
   context "#embedded and #non_embedded_keys" do
     EmbeddableThingie = EDoc {

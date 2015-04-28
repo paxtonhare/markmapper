@@ -117,7 +117,7 @@ module MarkMapper
 
       private
         def create_or_update(options={})
-          result = persisted? ? update(options) : create(options)
+          result = persisted? ? _update(options) : create(options)
           result != false
         end
 
@@ -125,7 +125,7 @@ module MarkMapper
           save_to_collection(options.merge(:persistence_method => :insert))
         end
 
-        def update(options={})
+        def _update(options={})
           save_to_collection(options.reverse_merge(:persistence_method => :save))
         end
 

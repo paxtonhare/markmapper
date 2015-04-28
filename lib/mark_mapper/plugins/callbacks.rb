@@ -34,7 +34,7 @@ module MarkMapper
         run_callbacks(:create) { super }
       end
 
-      def update(*)
+      def _update(*)
         run_callbacks(:update) { super }
       end
     end

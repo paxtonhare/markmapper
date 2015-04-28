@@ -181,10 +181,10 @@ module MarkMapper
     end
     include DSL
 
-    # def update(document, driver_opts={})
-    #   query = clone
-    #   query.collection.update(query.criteria_hash, document, driver_opts)
-    # end
+    def update(document, driver_opts={})
+      query = clone
+      query.collection.update(query.criteria_hash, document, driver_opts)
+    end
 
     def amend(opts={})
       opts.each { |key, value| self[key] = value }

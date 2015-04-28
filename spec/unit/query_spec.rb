@@ -327,24 +327,24 @@ describe MarkMapper::Query do
     end
   end
 
-  # context "#update" do
-  #   before do
-  #     @query = described_class.new(@collection).where('_id' => 'john')
-  #   end
+  context "#update" do
+    before do
+      @query = described_class.new(@collection).where('_id' => 'john')
+    end
 
-  #   it "works with document" do
-  #     @query.update('$set' => {'age' => 29})
-  #     doc = @query.first('_id' => 'john')
-  #     doc['age'].should be(29)
-  #   end
+    it "works with document" do
+      @query.update('$set' => {'age' => 29})
+      doc = @query.first('_id' => 'john')
+      doc['age'].should be(29)
+    end
 
-  #   it "works with document and driver options" do
-  #     @query.update({'$set' => {'age' => 30}}, :multi => true)
-  #     @query.each do |doc|
-  #       doc['age'].should be(30)
-  #     end
-  #   end
-  # end
+    it "works with document and driver options" do
+      @query.update({'$set' => {'age' => 30}}, :multi => true)
+      @query.each do |doc|
+        doc['age'].should be(30)
+      end
+    end
+  end
 
   context "#[]" do
     it "returns value if key in criteria (symbol)" do

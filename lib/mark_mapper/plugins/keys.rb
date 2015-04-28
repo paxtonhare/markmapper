@@ -320,20 +320,19 @@ module MarkMapper
         to_marklogic(false).with_indifferent_access
       end
 
-      def assign(attrs={})
-        warn "[DEPRECATION] #assign is deprecated, use #attributes="
-        self.attributes = attrs
-      end
-
-      def update_attributes(attrs={})
+      def update(attrs={})
         self.attributes = attrs
         save
       end
 
-      def update_attributes!(attrs={})
+      alias update_attributes update
+
+      def update!(attrs={})
         self.attributes = attrs
         save!
       end
+
+      alias update_attributes! update!
 
       def update_attribute(name, value)
         self.send(:"#{name}=", value)

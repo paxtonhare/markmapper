@@ -77,7 +77,7 @@ module MarkMapper
       MarkLogic::Connection.configure(app_services_port: env['app_services_port']) if env['app_services_port']
 
       MarkMapper.application = MarkLogic::Application.new(
-        "markmapper-application-test",
+        env['app_name'],
         connection: MarkLogic::Connection.new(env['host'], env['port'])
       )
       MarkMapper.application.stale?

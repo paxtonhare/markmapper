@@ -44,7 +44,7 @@ module MarkMapper
         true
       end
 
-      def update(options={})
+      def _update(options={})
         if partial_updates
           updates = fields_for_partial_update
 
