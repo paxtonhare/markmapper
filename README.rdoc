@@ -8,15 +8,15 @@ A Ruby Object Mapper for MarkLogic.
 
 == Documentation
 
-http://markmapper.com/documentation/
+http://paxtonhare.github.io/markmapper/
 
-http://rdoc.info/github/markmapper/markmapper
+http://rdoc.info/github/paxtonhare/markmapper
 
 == Compatibility
 
 MarkMapper is tested against:
 
-* MRI 2.2.0
+* MRI 2.2.1
 
 Additionally, MarkMapper is tested against:
 
