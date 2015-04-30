@@ -1,4 +1,5 @@
-MarkMapper.application.tap do |app|
+# Configure MarkMappper here
+MarkMapper.application.config do |app|
 
   # one way to create a range index. Use this if you want to use MarkMapper's defaults
   # for your database

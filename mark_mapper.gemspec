@@ -3,7 +3,7 @@ require File.expand_path('../lib/mark_mapper/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name               = 'mark_mapper'
-  s.homepage           = ''
+  s.homepage           = 'http://paxtonhare.github.io/markmapper/'
   s.summary            = 'A Ruby Object Mapper for MarkLogic'
   s.description        = 'MarkMapper is a Object-Document Mapper for Ruby and Rails'
   s.require_path       = 'lib'
