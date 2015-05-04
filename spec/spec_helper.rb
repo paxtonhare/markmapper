@@ -117,7 +117,7 @@ RSpec.configure do |config|
     c.syntax = [:should, :expect]
   end
 
-  config.fail_fast = true
+  config.fail_fast = false
 
   config.before(:all) do
     @application = MarkMapper.application.tap do |app|
